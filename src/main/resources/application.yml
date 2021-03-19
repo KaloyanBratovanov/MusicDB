@@ -1,0 +1,27 @@
+
+logging:
+    level:
+        blog: WARN
+        org: WARN
+        org.hibernate.SQL: DEBUG
+server:
+    port: 8080
+spring:
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        password: 2530
+        url: jdbc:mysql://localhost:3306/music_db?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+        username: root
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+        open-in-view: false
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MariaDBDialect
+                format_sql: true
+
+
+carousel:
+    images: dropkick.jpg, madonna.jpg, metallica.jpg, queen.jpg, rumjacks.jpg, уикеда.jpg
+    refresh-cron: "0 */10 * * * *"
