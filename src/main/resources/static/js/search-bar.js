@@ -67,7 +67,7 @@ fetch("http://localhost:8080/albums/api").
     then( data => {
         for (let album of data){
 
-            allAlbums.push(data)
+            allAlbums.push(album)
         }
 })
 

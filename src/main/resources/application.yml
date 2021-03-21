@@ -12,6 +12,17 @@ spring:
         password: 2530
         url: jdbc:mysql://localhost:3306/music_db?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
         username: root
+
+    servlet:
+      multipart:
+          max-file-size: 1MB
+          max-request-size: 5MB
+
+    mvc:
+      hiddenmethod:
+        filter:
+            enabled: true
+
     jpa:
         hibernate:
             ddl-auto: create-drop

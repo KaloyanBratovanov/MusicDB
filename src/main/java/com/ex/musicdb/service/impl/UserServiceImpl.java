@@ -47,8 +47,8 @@ public class UserServiceImpl implements UserService {
 
             userRoleRepository.saveAll(List.of(adminRole, userRole));
 
-            UserEntity admin = new UserEntity().setUsername("admin").setPassword(passwordEncoder.encode("123")).setFullname("Admin Adminov");
-            UserEntity user = new UserEntity().setUsername("user").setPassword(passwordEncoder.encode("123")).setFullname("Bai Ivan");
+            UserEntity admin = new UserEntity().setUsername("admin").setPassword(passwordEncoder.encode("12345")).setFullname("Admin Adminov");
+            UserEntity user = new UserEntity().setUsername("user").setPassword(passwordEncoder.encode("12345")).setFullname("Bai Ivan");
 
             admin.setRoles(List.of(adminRole, userRole));
             user.setRoles(List.of(userRole));

@@ -16,7 +16,7 @@
             <div class="form-row m-5">
                 <div class="col">
                     <label for="name">Album name</label>
-                    <input th:value="*{name}"
+                    <input th:field="*{name}"
                            id="name"
                            name="name"
                            type="text" class="form-control" placeholder="Album name">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="col">
                     <label for="imageUrl">Image Url</label>
-                    <input th:value="*{imageUrl}"
+                    <input th:field="*{imageUrl}"
                            id="imageUrl"
                            name="imageUrl"
                            type="text" class="form-control" placeholder="Image Url">
@@ -36,7 +36,7 @@
             <div class="form-row m-5">
                 <div class="col">
                     <label for="price">Price</label>
-                    <input  th:value="*{price}"
+                    <input  th:field="*{price}"
                             id="price"
                             name="price"
                             type="number" class="form-control" placeholder="Price">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col">
                     <label for="copies">Copies</label>
-                    <input th:value="*{copies}"
+                    <input th:field="*{copies}"
                             id="copies"
                            name="copies"
                            type="number" class="form-control" placeholder="Copies">
@@ -54,7 +54,7 @@
             <div class="form-row m-5">
                 <div class="col">
                     <label for="releaseDate">Release date</label>
-                    <input th:value="*{releaseDate}"
+                    <input th:field="*{releaseDate}"
                             id="releaseDate"
                            name="releaseDate"
                            class="form-control" placeholder="Release date">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col">
                     <label for="videoUrl">Video Url</label>
-                    <input th:value="*{videoUrl}"
+                    <input th:field="*{videoUrl}"
                             id="videoUrl"
                            name="videoUrl"
                            type="text" class="form-control" placeholder="Video url">
@@ -71,7 +71,9 @@
             <div class="form-row m-5">
                 <div class="col">
                     <label for="artist">Artist</label>
-                    <select id="artist" class="custom-select">
+                    <select th:field="*{artist}"
+                            id="artist"
+                            class="custom-select">
                         <option value="" selected>Select Artist</option>
                         <option value="">First Artist</option>
 						<option value="">Second Artist</option>

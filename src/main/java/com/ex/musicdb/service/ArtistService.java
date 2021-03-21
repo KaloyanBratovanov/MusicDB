@@ -6,8 +6,7 @@ import java.util.List;
 
 public interface ArtistService {
 
-    //todo
-    List<ArtistViewModel> findAllArtist();
+    List<String> findAllArtist();
 
     void seedArtist();
 }

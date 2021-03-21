@@ -1,24 +1,35 @@
 package com.ex.musicdb.model.binding;
 
 import com.ex.musicdb.model.entities.enums.Genre;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDate;
 
 public class AlbumAddBindingModel {
 
 
+    @Size(min = 3, max = 20)
     private String name;
+    @Size(min = 5)
     private String imageUrl;
     private String videoUrl;
+    @Size(min = 5)
     private String description;
+    @Min(0)
     private Integer copies;
+    @DecimalMin(value = "0")
     private BigDecimal price;
-    private Instant releaseDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate releaseDate;
+    @NotNull
     private Genre genre;
+    private String artist;
 
 
 
@@ -76,11 +87,12 @@ public class AlbumAddBindingModel {
         return this;
     }
 
-    public Instant getReleaseDate() {
+
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-    public AlbumAddBindingModel setReleaseDate(Instant releaseDate) {
+    public AlbumAddBindingModel setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
         return this;
     }
@@ -94,5 +106,12 @@ public class AlbumAddBindingModel {
         return this;
     }
 
+    public String getArtist() {
+        return artist;
+    }
 
+    public AlbumAddBindingModel setArtist(String artist) {
+        this.artist = artist;
+        return this;
+    }
 }

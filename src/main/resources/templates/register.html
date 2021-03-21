@@ -26,6 +26,7 @@
                         <input name="username"
                                th:value="*{username}"
                                th:errorclass ="is-invalid"
+                               required minlength="3" maxlength="20"
                                type="text"
                                id="inputUsername"
                                class="form-control"
@@ -50,6 +51,7 @@
                         <input name="fullname"
                                th:value="*{fullname}"
                                th:errorclass = "is-invalid"
+                               required minlength="3" maxlength="20"
                                type="text"
                                id="inputFullName"
                                class="form-control"
@@ -69,7 +71,8 @@
                         <input name="email"
                                th:value="*{email}"
                                th:errorclass = "is-invalid"
-                               type="text"
+                               required
+                               type="email"
                                id="inputEmail"
                                class="form-control"
                                aria-describedby="emailHelpInline">
@@ -87,6 +90,7 @@
                     <div class="col-auto">
                         <input name="password"
                                th:errorclass = "is-invalid"
+                               required minlength="5" maxlength="20"
                                type="password"
                                id="inputPassword"
                                class="form-control"
@@ -108,6 +112,7 @@
                         <input name="confirmPassword"
                                th:errorclass = "is-invalid"
                                type="password"
+                               required minlength="5" maxlength="20"
                                id="inputConfirmPassword"
                                class="form-control"
                                aria-describedby="confirmPasswordHelpInline">

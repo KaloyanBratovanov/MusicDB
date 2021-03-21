@@ -37,11 +37,9 @@ public class ArtistServiceImpl implements ArtistService {
     }
 
     @Override
-    public List<ArtistViewModel> findAllArtist() {
-        return artistRepository
-                .findAll().stream()
-                .map(a -> modelMapper.map(a, ArtistViewModel.class))
-                .collect(Collectors.toList());
+    public List<String> findAllArtist() {
+
+        return artistRepository.findAllArtistNames();
     }
 
     @Override
