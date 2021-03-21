@@ -17,6 +17,7 @@ public class AlbumServiceModel {
     private Instant releaseDate;
     private Genre genre;
     private String artist;
+    private String user;
 
     public AlbumServiceModel() {
     }
@@ -99,6 +100,15 @@ public class AlbumServiceModel {
 
     public AlbumServiceModel setArtist(String artist) {
         this.artist = artist;
+        return this;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public AlbumServiceModel setUser(String user) {
+        this.user = user;
         return this;
     }
 }

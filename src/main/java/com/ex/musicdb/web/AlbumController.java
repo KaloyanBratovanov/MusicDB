@@ -59,9 +59,10 @@ public class AlbumController {
         }
 
 
-        AlbumServiceModel albumServiceModel = modelMapper.map(albumAddBindingModel, AlbumServiceModel.class);
+        AlbumServiceModel albumServiceModel = modelMapper.
+                map(albumAddBindingModel, AlbumServiceModel.class);
 
-        albumServiceModel.setUsername(principal.getUsername());
+        albumServiceModel.setUser(principal.getUsername());
         albumService.createAlbum(albumServiceModel);
 
 
