@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 @RestController
 public class AlbumRestController {
 
-
     private final AlbumRepository albumRepository;
     private final ModelMapper modelMapper;
 

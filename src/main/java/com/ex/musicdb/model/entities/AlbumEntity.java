@@ -5,7 +5,7 @@ import com.ex.musicdb.model.entities.enums.Genre;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.time.LocalDate;
+
 
 @Entity
 @Table(name = "albums")
@@ -16,7 +16,7 @@ public class AlbumEntity extends BaseEntity{
     @Column(nullable = false)
     private String imageUrl;
     private String videoUrl;
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
     @Column(nullable = false)
     private Integer copies;
@@ -83,8 +83,9 @@ public class AlbumEntity extends BaseEntity{
         return releaseDate;
     }
 
-    public void setReleaseDate(Instant releaseDate) {
+    public AlbumEntity setReleaseDate(Instant releaseDate) {
         this.releaseDate = releaseDate;
+        return this;
     }
 
     public Genre getGenre() {
