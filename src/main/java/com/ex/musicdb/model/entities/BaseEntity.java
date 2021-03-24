@@ -3,7 +3,7 @@ package com.ex.musicdb.model.entities;
 import javax.persistence.*;
 
 @MappedSuperclass
-public class BaseEntity {
+public abstract class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
