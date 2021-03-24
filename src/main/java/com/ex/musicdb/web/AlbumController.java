@@ -2,6 +2,7 @@ package com.ex.musicdb.web;
 
 import com.ex.musicdb.model.binding.AlbumAddBindingModel;
 import com.ex.musicdb.model.servise.AlbumServiceModel;
+import com.ex.musicdb.model.view.AlbumViewModel;
 import com.ex.musicdb.service.AlbumService;
 import com.ex.musicdb.service.ArtistService;
 import org.modelmapper.ModelMapper;
@@ -69,5 +70,16 @@ public class AlbumController {
         albumService.createAlbum(albumServiceModel);
 
         return "redirect:/home";
+    }
+
+
+    @GetMapping("/details/{id}")
+    public String details(@PathVariable Long id, Model model){
+
+        AlbumViewModel albumViewModel = albumService.findById(id);
+
+        model.addAttribute("album", albumViewModel);
+
+        return "details";
     }
 }

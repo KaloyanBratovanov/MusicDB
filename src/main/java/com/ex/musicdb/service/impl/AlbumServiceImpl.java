@@ -4,6 +4,7 @@ import com.ex.musicdb.model.entities.AlbumEntity;
 import com.ex.musicdb.model.entities.ArtistEntity;
 import com.ex.musicdb.model.entities.UserEntity;
 import com.ex.musicdb.model.servise.AlbumServiceModel;
+import com.ex.musicdb.model.view.AlbumViewModel;
 import com.ex.musicdb.repository.AlbumRepository;
 import com.ex.musicdb.repository.UserRepository;
 import com.ex.musicdb.service.AlbumService;
@@ -43,6 +44,20 @@ public class AlbumServiceImpl implements AlbumService {
         albumEntity.setArtistEntity(artistEntity);
 
         albumRepository.save(albumEntity);
+
+    }
+
+    @Override
+    public AlbumViewModel findById(Long id) {
+
+        return  albumRepository.findById(id).
+                map(albumEntity -> {
+                    AlbumViewModel albumViewModel = modelMapper
+                            .map(albumEntity, AlbumViewModel.class);
+                    albumViewModel.setArtist(albumEntity.getArtistEntity().getName());
+                    return albumViewModel;
+
+                }).orElseThrow(IllegalArgumentException::new);
 
     }
 }
