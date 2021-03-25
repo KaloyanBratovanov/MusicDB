@@ -4,6 +4,7 @@ import com.ex.musicdb.model.entities.UserEntity;
 import com.ex.musicdb.model.entities.UserRoleEntity;
 import com.ex.musicdb.model.entities.enums.UserRole;
 import com.ex.musicdb.model.servise.UserRegistrationServiceModel;
+import com.ex.musicdb.model.servise.UserServiceModel;
 import com.ex.musicdb.repository.UserRepository;
 import com.ex.musicdb.repository.UserRoleRepository;
 import com.ex.musicdb.service.UserService;
@@ -96,4 +97,16 @@ public class UserServiceImpl implements UserService {
         return this.userRepository.findByUsername(username)
                 .orElseThrow(IllegalArgumentException::new);
     }
+
+    @Override
+    public UserServiceModel findById(Long id) {
+        return userRepository.findById(id)
+                .map(userEntity -> {
+
+                    return modelMapper
+                            .map(userEntity, UserServiceModel.class);
+                })
+                .orElseThrow(IllegalArgumentException::new);
+    }
+
 }

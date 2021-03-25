@@ -36,11 +36,6 @@ public class ArtistServiceImpl implements ArtistService {
         this.modelMapper = modelMapper;
     }
 
-    @Override
-    public List<String> findAllArtist() {
-
-        return artistRepository.findAllArtistNames();
-    }
 
     @Override
     public void seedArtist() {
@@ -63,6 +58,13 @@ public class ArtistServiceImpl implements ArtistService {
     public ArtistEntity findByName(String artist) {
 
        return artistRepository.findByName(artist).orElseThrow(IllegalArgumentException::new);
+
+    }
+
+    @Override
+    public List<String> findAllArtists() {
+
+        return artistRepository.findAllArtistNames();
 
     }
 }

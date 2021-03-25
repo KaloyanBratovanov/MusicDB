@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface ArtistService {
 
-    List<String> findAllArtist();
 
     void seedArtist();
 
     ArtistEntity findByName(String artist);
 
+    List<String> findAllArtists();
 }
