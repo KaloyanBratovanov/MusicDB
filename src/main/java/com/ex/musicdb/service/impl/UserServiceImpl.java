@@ -26,10 +26,10 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final ModelMapper modelMapper;
-    private final MusicDbUserService musicDbUserService;
+    private final MusicDBUserService musicDbUserService;
 
 
-    public UserServiceImpl(UserRoleRepository userRoleRepository, UserRepository userRepository, PasswordEncoder passwordEncoder, ModelMapper modelMapper, MusicDbUserService musicDbUserService) {
+    public UserServiceImpl(UserRoleRepository userRoleRepository, UserRepository userRepository, PasswordEncoder passwordEncoder, ModelMapper modelMapper, MusicDBUserService musicDbUserService) {
 
         this.userRoleRepository = userRoleRepository;
         this.userRepository = userRepository;

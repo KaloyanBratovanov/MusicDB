@@ -14,11 +14,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class MusicDbUserService implements UserDetailsService {
+public class MusicDBUserService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-    public MusicDbUserService(UserRepository userRepository) {
+    public MusicDBUserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

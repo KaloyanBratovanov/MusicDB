@@ -1,6 +1,6 @@
 package com.ex.musicdb.config;
 
-import com.ex.musicdb.service.impl.MusicDbUserService;
+import com.ex.musicdb.service.impl.MusicDBUserService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,10 +14,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final MusicDbUserService musicDbUserService;
+    private final MusicDBUserService musicDbUserService;
     private final PasswordEncoder passwordEncoder;
 
-    public ApplicationSecurityConfig(MusicDbUserService musicDbUserService, PasswordEncoder passwordEncoder) {
+    public ApplicationSecurityConfig(MusicDBUserService musicDbUserService, PasswordEncoder passwordEncoder) {
         this.musicDbUserService = musicDbUserService;
         this.passwordEncoder = passwordEncoder;
     }
