@@ -1,10 +1,12 @@
 package com.ex.musicdb.model.entities;
 
 import com.ex.musicdb.model.entities.enums.Genre;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDate;
 
 
 @Entity
@@ -23,7 +25,8 @@ public class AlbumEntity extends BaseEntity{
     @Column(nullable = false)
     private BigDecimal price;
     @Column(nullable = false)
-    private Instant releaseDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate releaseDate;
     @Enumerated(EnumType.STRING)
     private Genre genre;
     @ManyToOne
@@ -79,11 +82,11 @@ public class AlbumEntity extends BaseEntity{
         this.price = price;
     }
 
-    public Instant getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-    public AlbumEntity setReleaseDate(Instant releaseDate) {
+    public AlbumEntity setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
         return this;
     }

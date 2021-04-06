@@ -34,5 +34,5 @@ spring:
 
 
 carousel:
-    images: dropkick.jpg, madonna.jpg, metallica.jpg, queen.jpg, rumjacks.jpg, уикеда.jpg
+    images: madonna.jpg, metallica.jpg, offspring.jpg, queen.jpg, rumjacks.jpg, dropkick.jpg
     refresh-cron: "0 */10 * * * *"

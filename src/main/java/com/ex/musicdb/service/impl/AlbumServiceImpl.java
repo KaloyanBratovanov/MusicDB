@@ -4,6 +4,7 @@ import com.ex.musicdb.model.entities.AlbumEntity;
 import com.ex.musicdb.model.entities.ArtistEntity;
 import com.ex.musicdb.model.entities.UserEntity;
 import com.ex.musicdb.model.servise.AlbumServiceModel;
+import com.ex.musicdb.model.view.AlbumCardViewModel;
 import com.ex.musicdb.model.view.AlbumViewModel;
 import com.ex.musicdb.repository.AlbumRepository;
 import com.ex.musicdb.repository.UserRepository;
@@ -12,7 +13,12 @@ import com.ex.musicdb.service.ArtistService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
+
+
 public class AlbumServiceImpl implements AlbumService {
 
     private final AlbumRepository albumRepository;
@@ -65,5 +71,16 @@ public class AlbumServiceImpl implements AlbumService {
     public AlbumEntity findEntityById(Long albumId) {
         return albumRepository.findById(albumId)
                 .orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public List<AlbumCardViewModel> findAll() {
+        return albumRepository.findAll()
+                .stream().map(albumEntity -> {
+                    AlbumCardViewModel albumCardViewModel = modelMapper
+                            .map(albumEntity, AlbumCardViewModel.class);
+                    albumCardViewModel.setArtist(albumEntity.getArtistEntity().getName());
+                    return albumCardViewModel;
+                }).collect(Collectors.toList());
     }
 }

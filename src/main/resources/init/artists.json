@@ -15,6 +15,11 @@
     {
         "name": "Nirvana",
         "careerInformation": "Nirvana was an American rock band formed in Aberdeen, Washington in 1987"
+    },
+
+    {
+        "name": "The Offspring",
+        "careerInformation": "The Offspring is an American rock band from Garden Grove, California, formed in 1984."
     }
 
 

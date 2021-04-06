@@ -6,70 +6,63 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDate;
 
-public class AlbumViewModel {
+public class AlbumCardViewModel {
 
-
+    private Long id;
     private String name;
     private String imageUrl;
-    private String videoUrl;
-    private String description;
     private Integer copies;
     private BigDecimal price;
     private LocalDate releaseDate;
     private Genre genre;
     private String artist;
 
-
-    public AlbumViewModel() {
+    public AlbumCardViewModel() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public AlbumCardViewModel setId(Long id) {
+        this.id = id;
+        return this;
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public AlbumCardViewModel setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public AlbumCardViewModel setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
-    }
-
-    public String getVideoUrl() {
-        return videoUrl;
-    }
-
-    public void setVideoUrl(String videoUrl) {
-        this.videoUrl = videoUrl;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+        return this;
     }
 
     public Integer getCopies() {
         return copies;
     }
 
-    public void setCopies(Integer copies) {
+    public AlbumCardViewModel setCopies(Integer copies) {
         this.copies = copies;
+        return this;
     }
 
     public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public AlbumCardViewModel setPrice(BigDecimal price) {
         this.price = price;
+        return this;
     }
 
 
@@ -77,7 +70,7 @@ public class AlbumViewModel {
         return releaseDate;
     }
 
-    public AlbumViewModel setReleaseDate(LocalDate releaseDate) {
+    public AlbumCardViewModel setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
         return this;
     }
@@ -86,15 +79,16 @@ public class AlbumViewModel {
         return genre;
     }
 
-    public void setGenre(Genre genre) {
+    public AlbumCardViewModel setGenre(Genre genre) {
         this.genre = genre;
+        return this;
     }
 
     public String getArtist() {
         return artist;
     }
 
-    public AlbumViewModel setArtist(String artist) {
+    public AlbumCardViewModel setArtist(String artist) {
         this.artist = artist;
         return this;
     }
