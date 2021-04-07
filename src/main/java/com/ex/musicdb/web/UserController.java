@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -84,4 +85,20 @@ public class UserController {
         return "redirect:/users/login";
 
     }
+
+
+    @GetMapping("/logout")
+    public String logout(HttpSession httpSession){
+        httpSession.invalidate();
+        return "index";
+
+//                        <li sec:authorize="isAuthenticated()" class="nav-item">
+//                    <form th:action="@{/logout}" method="POST">
+//                    <button type="submit" class="nav-link">
+//                        Logout
+//                    </button>
+//                    </form>
+//                </li>
+    }
+
 }

@@ -30,6 +30,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/js/**", "/css/**", "/images/**").permitAll()
                 //allow access to index, user login end registration to eny one;
                 .antMatchers("/", "/users/login", "/users/register").permitAll()
+                .antMatchers("/articles/add").hasRole("ADMIN")
                 //protect oll other pages;
                 .antMatchers("/**")
                 .authenticated()

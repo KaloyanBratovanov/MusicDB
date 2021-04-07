@@ -8,13 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/articles")
-public class ArticlesController {
+public class ArticleController {
 
 
     @GetMapping("/all")
     public String allArticles(Model model) {
 
         return "all-articles";
+    }
+
+    @GetMapping("/add")
+    public String addArticle(){
+        return "add-article";
     }
 
 }
