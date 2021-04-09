@@ -1,8 +1,11 @@
 package com.ex.musicdb.model.entities;
 
 import com.ex.musicdb.model.entities.enums.Genre;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "articles")
@@ -17,6 +20,9 @@ public class ArticleEntity extends BaseEntity{
     private Genre genre;
     @Column(nullable = false)
     private String content;
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
+    private LocalDateTime createdOn;
     @ManyToOne
     private UserEntity userEntity;
 
@@ -56,6 +62,16 @@ public class ArticleEntity extends BaseEntity{
 
     public ArticleEntity setContent(String content) {
         this.content = content;
+        return this;
+    }
+
+
+    public LocalDateTime getCreatedOn() {
+        return createdOn;
+    }
+
+    public ArticleEntity setCreatedOn(LocalDateTime createdOn) {
+        this.createdOn = createdOn;
         return this;
     }
 

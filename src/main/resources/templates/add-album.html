@@ -9,7 +9,8 @@
 <main class="p-5 bg-blur text-center">
     <h1 class="text-light border-bottom">Add Album</h1>
     <div class="d-flex justify-content-center">
-        <form th:action="@{/albums/add}" method="POST"
+        <form th:action="@{/albums/add}"
+              method="POST"
               th:object="${albumAddBindingModel}"
 
               class="text-light">
@@ -64,7 +65,7 @@
                     <label for="releaseDate">Release date</label>
                     <input
                             th:field="*{releaseDate}"
-                            required min="2021-01-01" max="2022-01-01"
+                            required min="1949-01-01" max="2022-01-01"
                             th:errorclass="is-invalid"
                             id="releaseDate" name="releaseDate" type="date" class="form-control" placeholder="Release date">
                     <small id="releaseDateError" class="invalid-feedback form-text bg-danger rounded">Release date cannot be in the future</small>
@@ -103,7 +104,6 @@
 
                                 th:value="${g}"
                                 th:text="${g}">Select genre</option>
-
                     </select>
                     <small id="genreError" class="invalid-feedback form-text bg-danger rounded">You must select genre</small>
                 </div>

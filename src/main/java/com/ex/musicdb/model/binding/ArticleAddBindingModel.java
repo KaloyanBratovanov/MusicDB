@@ -1,31 +1,37 @@
-package com.ex.musicdb.model.view;
+package com.ex.musicdb.model.binding;
 
 import com.ex.musicdb.model.entities.enums.Genre;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
+public class ArticleAddBindingModel {
 
-public class ArticleViewModel {
-
-
+    @NotEmpty
+    @Size(min = 3, max = 20)
     private String title;
+    @NotEmpty
+    @Size(min = 5)
     private String imageUrl;
+    @NotNull
     private Genre genre;
+    @NotEmpty
+    @Size(min = 5)
     private String content;
-    private String author;
     @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
     private LocalDateTime createdOn;
 
-    public ArticleViewModel() {
+    public ArticleAddBindingModel() {
     }
-
 
     public String getTitle() {
         return title;
     }
 
-    public ArticleViewModel setTitle(String title) {
+    public ArticleAddBindingModel setTitle(String title) {
         this.title = title;
         return this;
     }
@@ -34,7 +40,7 @@ public class ArticleViewModel {
         return imageUrl;
     }
 
-    public ArticleViewModel setImageUrl(String imageUrl) {
+    public ArticleAddBindingModel setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return this;
     }
@@ -43,7 +49,7 @@ public class ArticleViewModel {
         return genre;
     }
 
-    public ArticleViewModel setGenre(Genre genre) {
+    public ArticleAddBindingModel setGenre(Genre genre) {
         this.genre = genre;
         return this;
     }
@@ -52,17 +58,8 @@ public class ArticleViewModel {
         return content;
     }
 
-    public ArticleViewModel setContent(String content) {
+    public ArticleAddBindingModel setContent(String content) {
         this.content = content;
-        return this;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public ArticleViewModel setAuthor(String author) {
-        this.author = author;
         return this;
     }
 
@@ -70,7 +67,7 @@ public class ArticleViewModel {
         return createdOn;
     }
 
-    public ArticleViewModel setCreatedOn(LocalDateTime createdOn) {
+    public ArticleAddBindingModel setCreatedOn(LocalDateTime createdOn) {
         this.createdOn = createdOn;
         return this;
     }

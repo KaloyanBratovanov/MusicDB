@@ -2,9 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 
-<head th:replace="fragments/commonts :: head"></head>
+<head th:replace="fragments/commonts :: head">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
 <body>
-<header th:replace="fragments/commonts :: navigation"></header>
+<header th:replace="fragments/commonts :: navigation">
+
+</header>
 <main class="p-5 align-content-center bg-blur">
 
     <div class="container">
@@ -15,17 +20,28 @@
             </div>
         </div>
 
+
+
         <div class="row mb-2">
-            <div class="col-md-6">
+            <div th:each="article : ${allArticle}" th:object="${article}"  class="col-md-6">
                 <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <strong class="d-inline-block mb-2 text-primary">Genre</strong>
-                        <h3 class="mb-0">Title</h3>
-                        <div class="mb-1 text-muted"> Date and time in format dd-MM-yyyy HH:mm</div>
-                        <p class="card-text mb-auto">First 60 characters from content + ...</p>
+                        <strong class="d-inline-block mb-2 text-primary" th:text="*{genre}">Genre</strong>
+                        <h3 class="mb-0" th:text="*{title}">Title</h3>
+                        <div class="mb-1 text-muted" th:text="*{createdOn}"> Date and time in format dd-MM-yyyy HH:mm</div>
+                        <p class="card-text mb-auto" th:text="*{content}">First 60 characters from content + ...</p>
                         <a href="/">Continue reading</a>
+                        <p>
+                            <button type="button" class="btn btn-default btn-sm">
+                                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                            </button>
+                            <button type="button" class="btn btn-default btn-sm">
+                                <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
+                            </button>
+                        </p>
+
                     </div>
-                    <img class="card-img-right flex-auto d-none d-lg-block"
+                    <img th:src="*{imageUrl}" class="card-img-right flex-auto d-none d-lg-block"
                          src="/" alt="Thumbnail [200x250]" style="width: 200px; height: 250px;">
                 </div>
             </div>
