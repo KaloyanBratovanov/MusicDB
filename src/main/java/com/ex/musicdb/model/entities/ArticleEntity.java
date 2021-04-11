@@ -4,8 +4,8 @@ import com.ex.musicdb.model.entities.enums.Genre;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "articles")
@@ -25,6 +25,7 @@ public class ArticleEntity extends BaseEntity{
     private LocalDateTime createdOn;
     @ManyToOne
     private UserEntity userEntity;
+
 
     public ArticleEntity() {
     }
@@ -83,4 +84,5 @@ public class ArticleEntity extends BaseEntity{
         this.userEntity = userEntity;
         return this;
     }
+    
 }

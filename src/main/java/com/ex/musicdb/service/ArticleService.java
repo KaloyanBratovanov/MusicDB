@@ -14,4 +14,7 @@ public interface ArticleService {
 
     void createArticle(ArticleServiceModel articleServiceModel);
 
+
+    ArticleViewModel findById(Long id);
+
 }

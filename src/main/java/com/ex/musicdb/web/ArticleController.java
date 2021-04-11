@@ -2,17 +2,16 @@ package com.ex.musicdb.web;
 
 import com.ex.musicdb.model.binding.ArticleAddBindingModel;
 import com.ex.musicdb.model.servise.ArticleServiceModel;
+import com.ex.musicdb.model.view.ArticleViewModel;
 import com.ex.musicdb.service.ArticleService;
+import com.ex.musicdb.service.LikeService;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -23,10 +22,12 @@ public class ArticleController {
 
     private final ModelMapper modelMapper;
     private final ArticleService articleService;
+    private final LikeService likeService;
 
-    public ArticleController(ModelMapper modelMapper, ArticleService articleService) {
+    public ArticleController(ModelMapper modelMapper, ArticleService articleService, LikeService likeService) {
         this.modelMapper = modelMapper;
         this.articleService = articleService;
+        this.likeService = likeService;
     }
 
 
@@ -75,5 +76,22 @@ public class ArticleController {
         articleService.createArticle(articleServiceModel);
 
         return "redirect:/home";
+    }
+
+
+    @GetMapping("/like/{id}")
+    public String details(@PathVariable Long id,
+                          Model model,
+                          @AuthenticationPrincipal UserDetails principal){
+
+        ArticleViewModel articleViewModel = articleService.findById(id);
+
+        model.addAttribute("articles", articleViewModel);
+
+
+        likeService.likeById(id, principal.getUsername());
+
+
+        return "redirect:/articles/all";
     }
 }

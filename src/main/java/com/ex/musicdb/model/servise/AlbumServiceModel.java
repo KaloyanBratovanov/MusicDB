@@ -4,6 +4,8 @@ import com.ex.musicdb.model.entities.enums.Genre;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class AlbumServiceModel {
 
@@ -14,7 +16,7 @@ public class AlbumServiceModel {
     private String description;
     private Integer copies;
     private BigDecimal price;
-    private Instant releaseDate;
+    private LocalDate releaseDate;
     private Genre genre;
     private String artist;
     private String user;
@@ -71,16 +73,18 @@ public class AlbumServiceModel {
         return price;
     }
 
+
     public AlbumServiceModel setPrice(BigDecimal price) {
         this.price = price;
         return this;
     }
 
-    public Instant getReleaseDate() {
+
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-    public AlbumServiceModel setReleaseDate(Instant releaseDate) {
+    public AlbumServiceModel setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
         return this;
     }

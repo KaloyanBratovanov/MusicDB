@@ -1,8 +1,10 @@
 package com.ex.musicdb.service.impl;
 
 import com.ex.musicdb.model.entities.ArticleEntity;
+import com.ex.musicdb.model.entities.LikeEntity;
 import com.ex.musicdb.model.entities.UserEntity;
 import com.ex.musicdb.model.servise.ArticleServiceModel;
+import com.ex.musicdb.model.view.AlbumViewModel;
 import com.ex.musicdb.model.view.ArticleViewModel;
 import com.ex.musicdb.repository.ArticleRepository;
 import com.ex.musicdb.repository.UserRepository;
@@ -10,7 +12,6 @@ import com.ex.musicdb.service.ArticleService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -54,6 +55,7 @@ public class ArticleServiceImpl implements ArticleService {
 
         articleEntity.setCreatedOn(LocalDateTime.now());
 
+
         UserEntity creator = userRepository.findByUsername(articleServiceModel.getUser())
                 .orElseThrow(() -> new IllegalArgumentException("Creator "+ articleServiceModel.getUser()
                         +" could not by found"));
@@ -61,6 +63,22 @@ public class ArticleServiceImpl implements ArticleService {
         articleEntity.setUserEntity(creator);
 
         articleRepository.save(articleEntity);
+    }
+
+    @Override
+    public ArticleViewModel findById(Long id) {
+
+
+        return articleRepository.findById(id).
+                map(articleEntity -> {
+                    ArticleViewModel articleViewModel = modelMapper
+                            .map(articleEntity, ArticleViewModel.class);
+                  articleViewModel.setAuthor(articleViewModel.getAuthor());
+                    return articleViewModel;
+
+                }).orElseThrow(IllegalArgumentException::new);
+
+
     }
 
 

@@ -16,4 +16,6 @@ public interface AlbumService {
     AlbumEntity findEntityById(Long albumId);
 
     List<AlbumCardViewModel> findAll();
+
+    AlbumEntity findEntityByName(String albumEntity);
 }

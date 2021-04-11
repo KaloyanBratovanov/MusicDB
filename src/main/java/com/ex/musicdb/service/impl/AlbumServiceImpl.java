@@ -83,4 +83,9 @@ public class AlbumServiceImpl implements AlbumService {
                     return albumCardViewModel;
                 }).collect(Collectors.toList());
     }
+
+    @Override
+    public AlbumEntity findEntityByName(String albumEntity) {
+        return albumRepository.findByName(albumEntity);
+    }
 }

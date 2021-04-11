@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 public class ArticleViewModel {
 
-
+    private Long id;
     private String title;
     private String imageUrl;
     private Genre genre;
@@ -20,6 +20,14 @@ public class ArticleViewModel {
     public ArticleViewModel() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public ArticleViewModel setId(Long id) {
+        this.id = id;
+        return this;
+    }
 
     public String getTitle() {
         return title;

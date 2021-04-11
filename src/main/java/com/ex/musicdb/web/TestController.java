@@ -21,13 +21,11 @@ public class TestController {
         this.userService = userService;
     }
 
-
     @GetMapping("/update")
     public String update(Principal principal, Model model){
         //ToDo: change entity
         UserEntity userEntity = userService
                 .findByName(principal.getName());
-
 
         model.addAttribute("username", userEntity.getUsername());
         model.addAttribute("userId", userEntity.getId());
@@ -41,4 +39,5 @@ public class TestController {
         System.out.println();
         return "redirect:/home";
     }
+
 }
